@@ -8,7 +8,7 @@
 
 <body>
 
-<script type="text/javascript">
+<script>
 //add in id and css styles last
 //consider bootstrap for formatting
     //start by creating a word bank array of words around the theme of hurricanes
@@ -22,28 +22,23 @@
 
     //step 1a: the computer chooses a random word from the word bank
     var word = wordbank[Math.floor(Math.random() * wordbank.length)];
+    console.log(word);
 
-    //step 1b: blank spaces are displayed for the randomly chosen word
+//assign underscores based on word length for randomly chosen word
     var answerArray = [];
     for (var i = 0; i < word.length; i++) {
         answerArray[i] = "_";
     }
     var remainingLetters = word.length;
+    console.log(answerArray);
 
-    //step 2a: the user is prompted to start picking letters
-    var start = prompt("Press any key to get started");
-    console.log(start);
-  
+//invite users to select a letter
+    var userGuess = prompt ("Pick a letter, any letter.");
+    console.log(userGuess);
 
-    //step 2b: for each letter that the user chooses, it is either displayed
-    //in the blank space or in a NOPE location
-    while (remainingLetters > 0); {
-        alert(answerArray.join(" "));
-        var userGuess = prompt("Pick a letter, any letter");
-        if (guess === null) {
-            break;
-        } else if (guess.length !== 1) {
-            alert("Enter only one letter!")
+//match user's guess to the randomly chosen word and assign to the right spot
+    if (userGuess.length !== 1) {
+        alert("Enter one letter only");
         } else {
             for (var j = 0; j < word.length; j++) {
                 if (word[j] === userGuess) {
@@ -52,40 +47,12 @@
                 }
             }
         }
-    }
-        
-            
-            
 
-    //step 3: the user gets to choose the number of letters that matches
-    //word length +1; the computer tells the user how many attempts are remaining
-
-
-    //step 4: if the player wins, the computer says "You Win" and click any key
-    //to start again; if the player loses, the computer says "Sorry, Try Again" and
-    //click any key to try again
-
-
-   /*    
-       var remainingLetters = word.length;
-    while (remainingLetters > 0) {
+       var correctChoices = [];
+       var incorrectChoices = [];
+       
     
-        var guess = prompt("Pick a letter, any letter");
-        if (guess === null) {
-            break;
-        } else if (guess.length !== 1) {
-            alert("Enter one letter only");
-        } else {
-            for (var j = 0; j < word.length; j++) {
-                if (word[j] === guess) {
-                    answerArray[j] = guess;
-                    remainingLetters--;
-                }
-            }
-        }
-
-    }
-*/
+      
 
 </script>
 </body>
