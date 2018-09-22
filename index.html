@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-<head>Welcome to Hangman!
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
 </head>
 
 <body>
-
-<script>
+<h1>Welcome to Hangman!</h1>
+<script type="text/javascript">
 //add in id and css styles last
 //consider bootstrap for formatting
     //start by creating a word bank array of words around the theme of hurricanes
@@ -23,6 +23,8 @@
     //step 1a: the computer chooses a random word from the word bank
     var word = wordbank[Math.floor(Math.random() * wordbank.length)];
     console.log(word);
+    attempts = 10;
+
 
 //assign underscores based on word length for randomly chosen word
     var answerArray = [];
@@ -48,11 +50,12 @@
             }
         }
 
-       var correctChoices = [];
-       var incorrectChoices = [];
-       
-    
-      
+       var correctChoices = 0;
+       var incorrectChoices = 0;
+        var correctChoicesText = document.getElementById("Correct Choices");
+        var incorrectChoicesText = document.getElementById("Incorrect Choices");
+        alert("your correct choices are " + correctChoices);
+        alert("your incorrect choices are " + incorrectChoices);
 
 </script>
 </body>
