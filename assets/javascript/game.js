@@ -11,11 +11,12 @@ var wordbank = [
 //introduce two elements into html, to create a space on the page to place the scores; the html will contain a reference to the elements and then look to the javascript to grab the element; there need to be references to the elements in the html
 //this information captures how html and javascript talk to each other; this is not the logic of the game yet
 
-var correctGuess = false;
 var remainingGuesses = 10;
 var incorrectChoices = [];
 var incorrectChoicesText = document.getElementById("IncorrectChoices");
 incorrectChoicesText.textContent = incorrectChoices;
+var remainingGuessesText = document.getElementById("RemainingGuesses");
+
 
 
 /*var attempts = 0;
@@ -64,34 +65,30 @@ startGame();
 //once a variable is defined globally, don't use var again
 
 function playGame(x) {
+    var correctGuess = false;
+    var keypress = x;
     for (var j = 0; j < splitWord.length; j++) {
-        if (splitWord[j] === x) {
-        correctGuess = true;
+        if (splitWord[j] === keypress) {
+            answerArray[j] = keypress;
+            answerArrayDiv.textContent = answerArray;        
+            correctGuess = true;
               }
-        else {
-        correctGuess = false;
-            }
-        if (correctGuess === true) {
-                answerArray[j] = x;
-                console.log(answerArray);
-                answerArrayDiv.textContent = answerArray;
-            } 
-            else {
-                incorrectChoices.push(x);
-                incorrectChoicesText.textContent = incorrectChoices;
-        }
-        
     }
-        
+    if (correctGuess === false) {
+        incorrectChoices.push(keypress);
+        incorrectChoicesText.textContent = incorrectChoices;
+        remainingGuesses--;
+        remainingGuessesText.textContent = remainingGuesses;
+        console.log(remainingGuesses);
     }
+}
 
 document.onkeyup = function (event) {
-    var userGuess = event.key;
-    console.log(userGuess);
-    playGame(userGuess);
+    playGame(event.key);
 }
 
 //check out innerHTML versus textContent
+
 
 
 
