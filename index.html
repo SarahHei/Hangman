@@ -4,76 +4,30 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" href="css/reset.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="assets/css/style.css">
 </head>
 
 <body>
-<h1>Welcome to Hangman!</h1>
+<h2>Welcome to Hurricane Florence Hangman</h2>
+<h3>Pick a letter, any letter.</h3>
 
 <div class="container">
     <div class="row">
         <div class="col-md-6">
-                <img src="https://www.google.com/search?q=hurricane+florence+picture&newwindow=1&safe=off&client=firefox-b-1&source=lnms&tbm=isch&sa=X&ved=0ahUKEwiDweiS2M7dAhWCdd8KHcqyAcwQ_AUIDigB&biw=1366&bih=654#imgrc=9N7K67eXGDuQmM" alt="Hurrican Florence from Space">
+                <img id="HurricaneFlorence" src="assets/images/HurricaneFlorence.jpg" alt="Hurricane Florence from Space">
         </div>
 
         <div class="col-md-6">
-        
-<script type="text/javascript">
-alert("Click a key to get started");
-
-//add in id and css styles last
-//consider bootstrap for formatting
-    //start by creating a word bank array of words around the theme of hurricanes
-    var wordbank= [
-        "fran", 
-        "storm", 
-        "beer", 
-        "hurricane", 
-        "florence"
-        ];
-
-    //step 1a: the computer chooses a random word from the word bank
-    var word = wordbank[Math.floor(Math.random() * wordbank.length)];
-    console.log(word);
-    attempts = 10;
-
-
-//assign underscores based on word length for randomly chosen word
-    var answerArray = [];
-    for (var i = 0; i < word.length; i++) {
-        answerArray[i] = "_";
-    }
-    var remainingLetters = word.length;
-
-//invite users to select a letter
-    var userGuess = prompt ("Pick a letter, any letter.");
-    console.log(userGuess);
-
-//match user's guess to the randomly chosen word and assign to the right spot
-    if (userGuess.length !== 1) {
-        alert("Enter one letter only");
-        } else {
-            for (var j = 0; j < word.length; j++) {
-                if (word[j] === userGuess) {
-                    answerArray[j] = userGuess;
-                    remainingLetters--;
-                }
-            }
-        }
-        console.log(answerArray);
-
-       var correctChoices = 0;
-       var incorrectChoices = 0;
-        var correctChoicesText = document.getElementById("Correct Choices");
-        var incorrectChoicesText = document.getElementById("Incorrect Choices");
-        alert("your correct choices are " + correctChoices);
-        alert("your incorrect choices are " + incorrectChoices);
-
-</script>
+            <p>Correct Choices:</p>
+            <div id="CorrectChoices"></div>
+            <p>Incorrect Choices:</p>
+            <div id="IncorrectChoices"></div>
+            <p>Answer Array</p>
+            <div id="AnswerArrayDiv"></div>
+        </div>
+    </div>
 </div>
-</div>
-</div>
+<script src="assets/javascript/game.js"></script>
 </body>
 </html>
